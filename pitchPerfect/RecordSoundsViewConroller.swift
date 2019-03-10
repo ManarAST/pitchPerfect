@@ -17,14 +17,15 @@ class RecordSoundsViewConroller: UIViewController, AVAudioRecorderDelegate{
     @IBOutlet weak var stopRecordingButton: UIButton!
     @IBOutlet weak var recordingLable: UILabel!
     
+    
+    
     func configurUI(isRecording : Bool) {
+        recordingButton.isEnabled = isRecording
+        stopRecordingButton.isEnabled = !isRecording
+        
         if isRecording {
-            recordingButton.isEnabled = true
-            stopRecordingButton.isEnabled = false
             audioRecorder.stop()
         } else {
-            recordingButton.isEnabled = false
-            stopRecordingButton.isEnabled = true
              audioRecorder.record()
         }
         
